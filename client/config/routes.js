@@ -6,6 +6,8 @@ import Good from '../views/index/good.vue'
 import Job from '../views/index/job.vue'
 import Share from '../views/index/share.vue'
 
+import Login from '../views/login.vue'
+
 export default [
     {
         path: '/',
@@ -42,5 +44,9 @@ export default [
                
             }
         ]
+    },
+    {
+        path: '/login',
+        component: Login
     }
 ]

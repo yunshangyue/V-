@@ -46,7 +46,5 @@ app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
 const HOST = process.env.HOST || '0.0.0.0'
 const POST = process.env.POST || 3333
 
-app.listen(POST, HOST, () => {
-    console.log('server run on 3333')
-})
+app.listen(POST, HOST, () => console.log('server run on 3333'))
 

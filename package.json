@@ -21,7 +21,7 @@
         "koa-router": "^7.4.0",
         "koa-send": "^5.0.0",
         "muse-ui": "^3.0.1",
-        "muse-ui-loading": "^0.2.0",
+        "muse-ui-toast": "^0.3.0",
         "vue": "^2.5.17",
         "vue-meta": "^1.5.3",
         "vue-router": "^3.0.1",

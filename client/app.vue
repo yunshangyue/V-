@@ -2,14 +2,17 @@
 <template>
 <div>
   <vHeader></vHeader>
-  <router-view></router-view>
+  <keep-alive>
+    <router-view></router-view>
+  </keep-alive>
 </div>
   
 </template>
 
 <script>
 import vHeader from "./layout/header.vue";
-import { mapActions, mapState } from "vuex";
+import axios from 'axios'
+import { mapGetters,mapActions } from 'vuex'
 
 export default {
   metaInfo: {
@@ -19,8 +22,9 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["user"])
+    ...mapGetters(['API'])
   },
+
   created() {
     if (typeof localStorage === "undefined" || localStorage === null) {
       return;
@@ -30,10 +34,18 @@ export default {
       console.log("no localStorage");
       return;
     }
-    this.isLogin(accesstoken);
+     axios.post(`${this.API}/accesstoken`, { accesstoken }).then(
+            res => {
+                if (res.data.success && res.status === 200) {
+                   this.Login(res.data)
+                } 
+            }
+        ).catch(e => {
+            console.log(e)
+        })
   },
   methods: {
-    ...mapActions(["isLogin"])
+    ...mapActions(["Login"])
   },
   components: {
     vHeader

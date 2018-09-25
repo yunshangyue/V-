@@ -5,28 +5,32 @@
       </mu-button>
   CNode
 
-  <mu-button flat slot="right">LOGIN</mu-button>
+  <mu-button flat slot="right" to="/login" v-if="!isLogin">LOGIN</mu-button>
+   <mu-avatar size="40" v-if="isLogin" flat slot="right">
+      <img :src="user.avatar_url">
+    </mu-avatar>
 </mu-appbar>
 </template>
 
 <script>
- export default {
-   data () {
-     return {
+import { mapState } from 'vuex'
 
-     }
-   },
-   components: {
-
-   }
- }
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapState(['user', 'isLogin']),
+  },
+  components: {}
+};
 </script>
 
 <style lang='less' scoped>
-// .nav {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-// }
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 101;
+}
 </style>

@@ -43,6 +43,6 @@ export default {
 
 <style lang="less" scoped>
 .main_container {
-  margin-top: 30px;
+  margin-top: 90px;
 }
 </style>

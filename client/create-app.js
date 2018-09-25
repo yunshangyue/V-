@@ -9,12 +9,12 @@ import createRouter from './config/router'
 
 import 'muse-ui/lib/styles/base.less';
 import 'muse-ui/lib/styles/theme.less';
-import 'muse-ui-loading/dist/muse-ui-loading.css'; // load css
 
-import { List, AppBar, Button, Icon, Tabs, Grid, Card, Paper, Avatar, Progress } from 'muse-ui'
+import { List, AppBar, Button, Icon, Tabs, Grid, Card, Paper, Avatar, Breadcrumbs, TextField,snackbar } from 'muse-ui'
 import Helpers from 'muse-ui/lib/Helpers';
-import Loading from 'muse-ui-loading';
+import Toast from 'muse-ui-toast';
 
+Vue.use(Toast);
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -30,8 +30,10 @@ Vue.use(List)
 Vue.use(Helpers);
 Vue.use(Paper)
 Vue.use(Avatar)
-Vue.use(Loading)
-Vue.use(Progress)
+Vue.use(Breadcrumbs)
+Vue.use(TextField)
+Vue.use(snackbar)
+
 
 export default () => {
     const router = createRouter()

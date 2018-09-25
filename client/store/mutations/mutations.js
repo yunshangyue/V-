@@ -7,10 +7,6 @@ export default {
         state.user.loginname = loginname
         state.user.avatar_url = avatar_url
         state.user.id = id
-        // let { name, avatarUrl, id, } = userInfo
-        // state.user.name = name
-        // state.user.avatarUrl = avatarUrl
-        // state.user.id = id
-        console.log(userInfo)
+        state.isLogin = true
     }
 }
