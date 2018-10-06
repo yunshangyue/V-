@@ -3,8 +3,7 @@
 <mu-paper :z-depth="1" class="demo-list-wrap">
  <loading :loading="loading"/>  
  <mu-list textline="two-line">
-
-   <mu-list-item avatar button v-for="item in list" :key="item.id">
+   <mu-list-item avatar button v-for="item in list" :key="item.id" @click="toPic(item.id)">
       <mu-list-item-action>
         <mu-avatar>
           <img :src="item.author.avatar_url" alt="">
@@ -30,6 +29,9 @@
     </mu-list-item>
 
    </mu-list>
+   <mu-flex justify-content="center" class="page_container">
+    <mu-pagination raised :total="1000" :current.sync="current" @change="handleChange"></mu-pagination>
+  </mu-flex>
 </mu-paper>
 
 </div>
@@ -45,19 +47,37 @@ export default {
   data() {
     return {
       list: [],
-      loading: true
+      loading: true,
+      current: 1
     };
   },
-  methods: {},
+  methods: {
+    handleChange() {
+      axios.get(`https://cnodejs.org/api/v1/topics?page=${this.current}&limit=15`)
+        .then(res => {
+          this.list = res.data.data
+        }).catch(e =>{
+          console.log(e.response)
+          this.$toast.message('emmm 出错了')
+        })
+    },
+    toPic(id) {
+      this.$router.push({
+        path: `/topic/${id}`
+      })
+    }
+  },
   created() {
-    axios.get("https://cnodejs.org/api/v1/topics")
+    axios
+      .get("https://cnodejs.org/api/v1/topics?page=1&limit=15")
       .then(res => {
         if (res.data.success && res.status === 200) {
+          console.log(res.data)
           this.list = res.data.data;
           this.$nextTick(() => (this.loading = false));
         }
       })
-      .catch(e => console.log(e));
+      .catch(e => console.log(e.response));
   },
   components: {
     loading
@@ -82,5 +102,9 @@ export default {
   &.good {
     background-color: #311b92;
   }
+}
+.page_container {
+  padding-bottom: 35px;
+  margin: 10px 0px;
 }
 </style>

@@ -5,7 +5,7 @@
       </mu-button>
   CNode
 
-  <mu-button flat slot="right" to="/login" v-if="!isLogin">LOGIN</mu-button>
+  <mu-button flat slot="right" to="/login" v-if="!isLogin">登录</mu-button>
    <mu-avatar size="40" v-if="isLogin" flat slot="right">
       <img :src="user.avatar_url">
     </mu-avatar>

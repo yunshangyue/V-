@@ -45,7 +45,8 @@ const config = {
             }
           }
         ]
-      }
+      },
+      { test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000' }
     ]
   }
 }

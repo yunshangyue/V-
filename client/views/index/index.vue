@@ -1,7 +1,7 @@
 <template>
 <mu-container class="main_container">
   <mu-card :raised="true">
-  <mu-tabs  change="inSide(value)" :value.sync="shift" inverse color="secondary" text-color="rgba(0, 0, 0, .54)" full-width>
+  <mu-tabs :value.sync="shift" inverse color="secondary" text-color="rgba(0, 0, 0, .54)" full-width>
     <mu-tab to="/index/all" value="all">全部</mu-tab>
     <mu-tab to="/index/good" value="music">精华</mu-tab>
     <mu-tab to="/index/ask" value="good">问答</mu-tab>
@@ -44,5 +44,6 @@ export default {
 <style lang="less" scoped>
 .main_container {
   margin-top: 90px;
+  margin-bottom: 30px;
 }
 </style>

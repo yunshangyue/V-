@@ -10,11 +10,11 @@ import createRouter from './config/router'
 import 'muse-ui/lib/styles/base.less';
 import 'muse-ui/lib/styles/theme.less';
 
-import { List, AppBar, Button, Icon, Tabs, Grid, Card, Paper, Avatar, Breadcrumbs, TextField,snackbar } from 'muse-ui'
-import Helpers from 'muse-ui/lib/Helpers';
-import Toast from 'muse-ui-toast';
 
-Vue.use(Toast);
+import { List, Divider,AppBar, Button, Icon, Tabs, Grid, Card, Paper, Avatar, Breadcrumbs, TextField,snackbar,Pagination, Toast } from 'muse-ui'
+import Helpers from 'muse-ui/lib/Helpers';
+import 'typeface-roboto'
+
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -33,7 +33,8 @@ Vue.use(Avatar)
 Vue.use(Breadcrumbs)
 Vue.use(TextField)
 Vue.use(snackbar)
-
+Vue.use(Pagination)
+Vue.use(Divider)
 
 export default () => {
     const router = createRouter()
